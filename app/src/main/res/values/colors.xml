@@ -13,4 +13,5 @@
     <color name="green">#4ea043</color>
     <color name="red">#d14f4f</color>
     <color name="orange">#ff9900</color>
+    <color name="green_darker">#008000</color>
 </resources>

@@ -24,7 +24,7 @@
             android:gravity="end"
             android:textSize="30dp"
             android:textColor="@color/white"
-            android:text="5+10-3"/>
+            android:text=""/>
 
         <TextView
             android:id="@+id/output"
@@ -33,7 +33,7 @@
             android:gravity="end"
             android:textSize="50dp"
             android:textColor="@color/green"
-            android:text="12"/>
+            android:text=""/>
 
     </LinearLayout>
 
@@ -209,6 +209,63 @@
             style="@style/Button_Style"
             android:background="@color/orange"
             android:text="DEC" />
+
+    </TableRow>
+
+    <TableRow android:visibility="gone">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:visibility="gone"
+            android:id="@+id/buttonA"
+            style="@style/Button_Style"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="A"
+            android:textSize="15sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:visibility="gone"
+            android:id="@+id/buttonB"
+            style="@style/Button_Style"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="B"
+            android:textSize="15sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:visibility="gone"
+            android:id="@+id/buttonC"
+            style="@style/Button_Style"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="C"
+            android:textSize="15sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:visibility="gone"
+            android:id="@+id/buttonD"
+            style="@style/Button_Style"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="D"
+            android:textSize="15sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:visibility="gone"
+            android:id="@+id/buttonE"
+            style="@style/Button_Style"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="E"
+            android:textSize="15sp" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonF"
+            style="@style/Button_Style"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:visibility="gone"
+            android:text="F"
+            android:textSize="15sp" />
 
     </TableRow>
 

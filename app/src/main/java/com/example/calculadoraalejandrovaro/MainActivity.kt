@@ -1,10 +1,13 @@
 package com.example.calculadoraalejandrovaro
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import kotlinx.android.synthetic.main.activity_main.*
 import org.mariuszgromada.math.mxparser.Expression
 import java.lang.Exception
 import java.text.DecimalFormat
@@ -109,6 +112,32 @@ class MainActivity : AppCompatActivity() {
             input.text = addToInputText("-")
         }
 
+        val aButton = findViewById<Button>(R.id.buttonA)
+        aButton.setOnClickListener{
+            input.text = addToInputText("A")
+        }
+
+        val bButton = findViewById<Button>(R.id.buttonB)
+        bButton.setOnClickListener{
+            input.text = addToInputText("B")
+        }
+        val cButton = findViewById<Button>(R.id.buttonC)
+        cButton.setOnClickListener{
+            input.text = addToInputText("C")
+        }
+        val dButton = findViewById<Button>(R.id.buttonD)
+        dButton.setOnClickListener{
+            input.text = addToInputText("D")
+        }
+        val eButton = findViewById<Button>(R.id.buttonE)
+        eButton.setOnClickListener{
+            input.text = addToInputText("E")
+        }
+        val fButton = findViewById<Button>(R.id.buttonF)
+        fButton.setOnClickListener{
+            input.text = addToInputText("F")
+        }
+
         val equalButton = findViewById<Button>(R.id.buttonEqual)
         equalButton.setOnClickListener{
             showResult()
@@ -116,16 +145,25 @@ class MainActivity : AppCompatActivity() {
 
         val binaryButton = findViewById<Button>(R.id.buttonBinario)
         binaryButton.setOnClickListener{
+            buttonBinario.setBackgroundColor(Color.parseColor("#008000"))
+            buttonHexadecimal.setBackgroundColor(Color.parseColor("#ff9900"))
+            buttonDecimal.setBackgroundColor(Color.parseColor("#ff9900"))
             showBinary()
         }
 
         val hexButton = findViewById<Button>(R.id.buttonHexadecimal)
         hexButton.setOnClickListener{
+            buttonHexadecimal.setBackgroundColor(Color.parseColor("#008000"))
+            buttonBinario.setBackgroundColor(Color.parseColor("#ff9900"))
+            buttonDecimal.setBackgroundColor(Color.parseColor("#ff9900"))
             showHex()
         }
 
         val decButton = findViewById<Button>(R.id.buttonDecimal)
         decButton.setOnClickListener{
+            buttonDecimal.setBackgroundColor(Color.parseColor("#008000"))
+            buttonHexadecimal.setBackgroundColor(Color.parseColor("#ff9900"))
+            buttonBinario.setBackgroundColor(Color.parseColor("#ff9900"))
             showResult()
         }
     }
@@ -139,16 +177,40 @@ class MainActivity : AppCompatActivity() {
         val input = findViewById<TextView>(R.id.input)
         var expression = input.text.replace(Regex("÷"), "/")
         expression = expression.replace(Regex("x"),"*")
+        expression = expression.replace(Regex("A"),"10")
+        expression = expression.replace(Regex("B"),"11")
+        expression = expression.replace(Regex("C"),"12")
+        expression = expression.replace(Regex("D"),"13")
+        expression = expression.replace(Regex("E"),"14")
+        expression = expression.replace(Regex("F"),"15")
         return expression
     }
 
     private fun showResult(){
+
+        buttonA.visibility = View.GONE
+        buttonB.visibility = View.GONE
+        buttonC.visibility = View.GONE
+        buttonD.visibility = View.GONE
+        buttonE.visibility = View.GONE
+        buttonF.visibility = View.GONE
+        buttonTwo.isEnabled = true;
+        buttonThree.isEnabled = true;
+        buttonFour.isEnabled = true;
+        buttonFive.isEnabled = true;
+        buttonSix.isEnabled = true;
+        buttonSeven.isEnabled = true;
+        buttonEight.isEnabled = true;
+        buttonNine.isEnabled = true;
+        buttonDot.isEnabled = true;
+        buttonEqual.isEnabled = true;
+
         try {
             val expression = getInputExpression()
             val result = Expression(expression).calculate()
             if(result.isNaN()){
                 val output = findViewById<TextView>(R.id.output)
-                output.text = "Error"
+                output.text = ""
                 output.setTextColor(ContextCompat.getColor(this,R.color.red))
             }else{
                 val output = findViewById<TextView>(R.id.output)
@@ -157,12 +219,30 @@ class MainActivity : AppCompatActivity() {
             }
         }catch (e: Exception){
             val output = findViewById<TextView>(R.id.output)
-            output.text = "Error"
+            output.text = ""
             output.setTextColor(ContextCompat.getColor(this,R.color.red))
         }
     }
 
     private fun showBinary(){
+
+        buttonA.visibility = View.GONE
+        buttonB.visibility = View.GONE
+        buttonC.visibility = View.GONE
+        buttonD.visibility = View.GONE
+        buttonE.visibility = View.GONE
+        buttonF.visibility = View.GONE
+        buttonTwo.isEnabled = false;
+        buttonThree.isEnabled = false;
+        buttonFour.isEnabled = false;
+        buttonFive.isEnabled = false;
+        buttonSix.isEnabled = false;
+        buttonSeven.isEnabled = false;
+        buttonEight.isEnabled = false;
+        buttonNine.isEnabled = false;
+        buttonDot.isEnabled = false;
+        buttonEqual.isEnabled = false;
+
         try {
             val expressionBin = getInputExpression()
             val resultBin = Expression(expressionBin).calculate()
@@ -170,7 +250,7 @@ class MainActivity : AppCompatActivity() {
 
             if (resultBin.isNaN()){
                 val outputBin = findViewById<TextView>(R.id.output)
-                outputBin.text = "Error"
+                outputBin.text = ""
                 outputBin.setTextColor(ContextCompat.getColor(this,R.color.red))
             }else{
                 val outputBin = findViewById<TextView>(R.id.output)
@@ -179,7 +259,7 @@ class MainActivity : AppCompatActivity() {
             }
         }catch (e: Exception){
             val outputBin = findViewById<TextView>(R.id.output)
-            outputBin.text = "Error"
+            outputBin.text = ""
             outputBin.setTextColor(ContextCompat.getColor(this,R.color.red))
         }
     }
@@ -198,6 +278,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showHex(){
+
+        buttonA.visibility = View.VISIBLE
+        buttonB.visibility = View.VISIBLE
+        buttonC.visibility = View.VISIBLE
+        buttonD.visibility = View.VISIBLE
+        buttonE.visibility = View.VISIBLE
+        buttonF.visibility = View.VISIBLE
+        buttonEqual.isEnabled = false;
+        buttonDot.isEnabled = false;
+
         try {
             val expressionHex = getInputExpression()
             val resultHex = Expression(expressionHex).calculate()
@@ -205,7 +295,7 @@ class MainActivity : AppCompatActivity() {
 
             if (resultHex.isNaN()){
                 val outputHex = findViewById<TextView>(R.id.output)
-                outputHex.text = "Error"
+                outputHex.text = ""
                 outputHex.setTextColor(ContextCompat.getColor(this,R.color.red))
             }else{
                 val outputHex = findViewById<TextView>(R.id.output)
@@ -214,7 +304,7 @@ class MainActivity : AppCompatActivity() {
             }
         }catch (e: Exception){
             val outputHex = findViewById<TextView>(R.id.output)
-            outputHex.text = "Error"
+            outputHex.text = ""
             outputHex.setTextColor(ContextCompat.getColor(this,R.color.red))
         }
     }
