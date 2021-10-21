@@ -287,6 +287,14 @@ class MainActivity : AppCompatActivity() {
         buttonF.visibility = View.VISIBLE
         buttonEqual.isEnabled = false;
         buttonDot.isEnabled = false;
+        buttonTwo.isEnabled = true;
+        buttonThree.isEnabled = true;
+        buttonFour.isEnabled = true;
+        buttonFive.isEnabled = true;
+        buttonSix.isEnabled = true;
+        buttonSeven.isEnabled = true;
+        buttonEight.isEnabled = true;
+        buttonNine.isEnabled = true;
 
         try {
             val expressionHex = getInputExpression()
